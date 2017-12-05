@@ -115,6 +115,12 @@ enum mpu9250_register {
 	MPU9250_ZA_OFFSET_L =       0x7E
 };
 
+enum config_bits {
+	DLPF_CFG = 0,
+	EXT_SYNC_SET = 3,
+	FIFO_MODE = 6
+};
+
 enum interrupt_status_bits {
 	INT_STATUS_RAW_DATA_RDY_INT = 0,
 	INT_STATUS_FSYNC_INT = 3,
@@ -214,7 +220,6 @@ enum int_pin_cfg_bits {
 
 #define INT_PIN_CFG_INT_MASK	0xF0
 #define MPU9250_WHO_AM_I_RESULT 0x71
-
 #define AK8963_I2C_ADDR			0x0C
 
 enum ak8963_register {
@@ -244,7 +249,7 @@ enum ak8963_cntl1_bits {
 	AK8963_BIT = 4,	
 };
 
-enum ak8963_cntl1_modes {
+enum ak8963_cntl1_mode {
 	AK8963_PWR_DWN = 0x00,
 	AK8963_SNGL_MEAS = 0x01,
 	AK8963_CNT_MEAS1 = 0x02,
@@ -252,7 +257,7 @@ enum ak8963_cntl1_modes {
 	AK8963_EXT_TRG = 0x04,
 	AK8963_SLF_TST = 0x08,
 	AK8963_FSE_ROM = 0x0F	
-};
+} typedef ak8963_cntl1_mode_t;
 
 #define MAG_CTRL_OP_MODE_MASK	0xF
 #define AK8963_ST1_DRDY_BIT		0
